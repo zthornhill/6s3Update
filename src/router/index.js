@@ -7,6 +7,8 @@ import SubscriptionList from '@/components/SubscriptionList'
 import SubscriptionCreate from '@/components/SubscriptionCreate'
 import Payment from '@/components/Payment'
 import ForgotPassword from '@/components/ForgotPassword.vue'
+import SelectSubscription from '@/components/SelectSubscription.vue'
+import Account from '@/components/Account.vue'
 
 Vue.use(Router)
 
@@ -19,7 +21,16 @@ export default new Router({
       name: 'Home',
       component: Home
     },
-    
+    {
+      path: '/Account',
+      name: 'Account',
+      component: Account
+    },
+    {
+      path: '/select-subscription',
+      name: 'SelectSubscription',
+      component: SelectSubscription
+    },
     {
       path: '/subscription-list',
       name: 'SubscriptionList',

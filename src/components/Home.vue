@@ -34,7 +34,7 @@
                 <v-col>
                   <v-card>
                     <v-img
-                      :src="require('@/assets/images/stream.png')" height="200px">
+                      :src="require('@/assets/images/stream.png')" height="300px">
                     </v-img>
                     <v-card-actions>
                       <v-btn flat color="orange" @click="viewSubscriptions">View Subscriptions</v-btn>
@@ -44,10 +44,20 @@
                 <v-col>
                   <v-card>
                     <v-img
-                      :src="require('@/assets/images/paypal.png')" height="200px">
+                      :src="require('@/assets/images/paypal.png')" height="300px">
                     </v-img>
                     <v-card-actions>
                       <v-btn flat color="orange" @click="viewPayment">View Payment Info</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-col>
+                <v-col>
+                  <v-card>
+                    <v-img
+                      :src="require('@/assets/images/account.png')" height="300px">
+                    </v-img>
+                    <v-card-actions>
+                      <v-btn flat color="orange" @click="viewAccount">View Account Information</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-col>
@@ -82,6 +92,9 @@
       },
       viewPayment() {
         router.push('/payment');
+      },
+      viewAccount() {
+        router.push('/Account')
       },
       getUser() {
         if (localStorage.getItem("isAuthenticates")

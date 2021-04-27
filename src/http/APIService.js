@@ -25,6 +25,15 @@ export class APIService {
 
   }
 
+  getAccount() {
+    const url = `${API_URL}/api/customuser`;
+    let jwtToken = localStorage.getItem('token');
+    console.log(":::jwtToken:::::" + jwtToken);
+    const headers = {Authorization: `jwt ${jwtToken}`};
+    return axios.get(url, {headers: headers});
+
+  }
+
    addNewSubscription(subscription){
   const url = `${API_URL}/api/subscriptions/`;
   let jwtToken = localStorage.getItem('token');
@@ -38,6 +47,13 @@ export class APIService {
    const headers = {Authorization: `jwt ${jwtToken}`};
    return axios.put(url, subscription, {headers: headers});
  }
+
+ updateAccount(subscription){
+  const url = `${API_URL}/api/subscriptions/${subscription.pk}`;
+  let jwtToken = localStorage.getItem('token');
+  const headers = {Authorization: `jwt ${jwtToken}`};
+  return axios.put(url, subscription, {headers: headers});
+}
 
  deleteSubscription(subscription_Pk){
     const url = `${API_URL}/api/subscriptions/${subscription_Pk}`;

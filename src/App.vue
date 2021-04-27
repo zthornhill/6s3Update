@@ -104,7 +104,8 @@
         
         this.menu = [
             { title: 'Subscriptions', url:"/subscription-list" },
-            { title: 'Payment', url:"/Payment" }
+            { title: 'Payment', url:"/Payment" },
+            { title: 'Account Management', url:"/Account" }
             ]
     },
 
@@ -140,6 +141,9 @@
       payment() {
         router.push('/payment');
       },
+      account() {
+        router.push('/account');
+      }
     }
   };
 

@@ -101,7 +101,13 @@
                   </v-row>
                 </template>     
               </v-data-iterator>  
-              <v-btn class="blue mt-4 white--text" @click="addNewSubscription">Add Subscription</v-btn>  
+              <v-btn class="blue mt-4 white--text" @click="addNewSubscription">Add Subscription</v-btn>
+              <v-btn class="blue mt-4 white--text" @click="chooseCommonSubscription">Select Common Subscription</v-btn>
+                <div id='dropdownlist' style="margin:50px auto 0; width:250px;">
+                <br>
+                <ejs-dropdownlist>
+                </ejs-dropdownlist>
+                </div>  
         </v-col>  
       </v-row>
     </v-container>  
@@ -110,7 +116,10 @@
 
 
 <script>
-
+  import Vue from 'vue';
+  import { DropDownListPlugin } from "@syncfusion/ej2-vue-dropdowns";
+  Vue.use(DropDownListPlugin);
+  import { DataManager,WebApiAdaptor } from '@syncfusion/ej2-data';
   import router from '../router';
   import {APIService} from '../http/APIService';
   const apiService = new APIService();
@@ -170,6 +179,14 @@
           }
         });
       },
+      chooseCommonSubscription() {
+        if (localStorage.getItem("isAuthenticates")
+          && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
+          router.push('/select-subscription');
+        } else {
+          router.push("/auth");
+        }
+      },
       addNewSubscription() {
         if (localStorage.getItem("isAuthenticates")
           && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
@@ -199,3 +216,6 @@
     }
   };
 </script>
+<style>
+@import url(https://cdn.syncfusion.com/ej2/material.css);
+</style>
