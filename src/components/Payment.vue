@@ -1,14 +1,16 @@
 <template>
   <div>
     <div v-if="!paidFor">
-      <h1>One Time Payment! - ${{ product.price }}</h1>
+      <br>
+      <br>
+      <h1>Donate! - ${{ product.price }}</h1>
 
       <p>{{ product.description }}</p>
       <img src="../assets/images/SubAlert.png">
     </div>
 
     <div v-if="paidFor">
-      <h1>You have successfully purched your life-time use of SubAlert Application!</h1>
+      <h1>You have successfully donated to SubAlert!</h1>
     </div>
 
     <div ref="paypal"></div>
